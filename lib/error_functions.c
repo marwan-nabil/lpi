@@ -25,7 +25,7 @@ terminate(Boolean useExit3)
         _exit(EXIT_FAILURE);
 }
 
-tatic void
+static void
 outputError(Boolean useErr, int err, Boolean flushStdout,
             const char *format, va_list ap)
 {
