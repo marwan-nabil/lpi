@@ -1,12 +1,12 @@
-ENTRY_SOURCE := fileio/seek_io.c
+ENTRY_SOURCE := fileio/t_readv.c
 LIBRARY_SOURCES := lib/*.c
-OTHER_SOURCES :=
 
 INCLUDE_DIRS := -Ilib -Ifileio
-SOURCES := $(ENTRY_SOURCE) $(LIBRARY_SOURCES) $(OTHER_SOURCES) 
+SOURCES := $(ENTRY_SOURCE) $(LIBRARY_SOURCES) 
+WARNINGS := -Wno-format-truncation
 
 all:
-	gcc $(INCLUDE_DIRS) $(SOURCES) -o $(patsubst %.c,%,$(notdir $(ENTRY_SOURCE)))
+	gcc -g $(INCLUDE_DIRS) $(WARNINGS) $(SOURCES) -o $(patsubst %.c,%,$(notdir $(ENTRY_SOURCE)))
 
 clean:
 	rm -rf $(patsubst %.c,%,$(notdir $(ENTRY_SOURCE)))
